@@ -10,21 +10,20 @@ const Navbar = () => {
   const { isAuthorized, setIsAuthorized, user } = useContext(Context);
   const navigateTo = useNavigate();
 
-  const handleLogout = async () => {
-    try {
-      const response = await axios.get(
-        "https://intern-hub-backend.vercel.app/api/v1/user/logout",
-        {
-          withCredentials: true,
-        }
-      );
-      toast.success(response.data.message);
-      setIsAuthorized(false);
-      navigateTo("/login");
-    } catch (error) {
-      toast.error(error.response.data.message), setIsAuthorized(true);
-    }
+  const handleLogout = () => {
+    // Open the logout URL in a new tab
+    window.open("https://intern-hub-backend.vercel.app/api/v1/user/logout", "_blank");
+    
+    
+    // Clear local storage and session storage
+    localStorage.removeItem("user");
+    sessionStorage.removeItem("user");
+  
+    // Redirect to the login page
+    setIsAuthorized(false);
+    navigateTo("/");
   };
+  
 
   return (
     <nav className={isAuthorized ? "navbarShow" : "navbarHide"}>

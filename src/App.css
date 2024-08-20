@@ -320,7 +320,7 @@ p {
 .heroSection .container .title h1 {
   width: 355px; /* Adjust to final width after animation */
   animation: reveal 3s forwards;
-  margin-left: -18px;
+  margin-left: -15px;
   max-width: 600px;
 }
 
