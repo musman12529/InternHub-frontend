@@ -12,16 +12,23 @@ const Navbar = () => {
 
   const handleLogout = () => {
     // Open the logout URL in a new tab
-    window.open("https://intern-hub-backend.vercel.app/api/v1/user/logout", "_blank");
-    
-    
+    // Example usage in frontend:
+const redirectUrl = window.location.href;
+window.open(
+  `https://intern-hub-backend.vercel.app/api/v1/user/logout?redirect=${encodeURIComponent(redirectUrl)}`,
+  "_blank"
+);
+
     // Clear local storage and session storage
     localStorage.removeItem("user");
     sessionStorage.removeItem("user");
+
+    
   
     // Redirect to the login page
     setIsAuthorized(false);
     navigateTo("/");
+    
   };
   
 
