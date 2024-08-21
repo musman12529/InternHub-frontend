@@ -13,7 +13,7 @@ const Navbar = () => {
   const handleLogout = () => {
     // Open the logout URL in a new tab
     // Example usage in frontend:
-const redirectUrl = window.location.href;
+const redirectUrl = "https://intern-hub-frontend.vercel.app/" ;
 window.open(
   `https://intern-hub-backend.vercel.app/api/v1/user/logout?redirect=${encodeURIComponent(redirectUrl)}`,
   "_blank"
